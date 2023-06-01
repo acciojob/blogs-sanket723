@@ -45,30 +45,35 @@ public class ImageService {
         String imageDimensions = image.getDimensions();
         //image dimension is in String format ex: 2X2
         //we have to convert it into integer like 2*2=4
-        //below is the process to calculate total image dimension
+        //below is the process to calculate image dimension as width and height
 
         int indexOfX = imageDimensions.indexOf('X');
 
         String x = imageDimensions.substring(0,indexOfX);
         String y = imageDimensions.substring(indexOfX+1);
 
-        int totalImageDimension = Integer.parseInt(x) * Integer.parseInt(y);
+        int imageWidth = Integer.parseInt(x);
+        int imageHeight= Integer.parseInt(y);
 
 
-        //Like above, Similarly find total screen dimension in integer format
+        //Like above, Similarly find screen dimension in integer format
 
         int screenIndexOfX = screenDimensions.indexOf('X');
 
         String screenX = screenDimensions.substring(0,screenIndexOfX);
         String screenY = screenDimensions.substring(screenIndexOfX+1);
 
-        int totalScreenDimension = Integer.parseInt(screenX) * Integer.parseInt(screenY);
+        int screenWidth = Integer.parseInt(screenX);
+        int screenHeight = Integer.parseInt(screenY);
+
+        //THIS COMMENTED LOGIC IS NOT WORKING DON'T KNOW WHY. ASK IN DOUBT
+           // int totalImageDimension = imageWidth * imageHeight;
+           // int totalScreenDimension = screenWidth * screenHeight;
+           // int count = totalScreenDimension/totalImageDimension;
 
 
-       // int count = totalScreenDimension/totalImageDimension;
-
-        //Final count
-        int count = (Integer.parseInt(screenX)/Integer.parseInt(x)) * (Integer.parseInt(screenY)/Integer.parseInt(y));
+        // Final count
+        int count = (screenWidth/imageWidth) * (screenHeight/imageHeight);
 
         return count;
 
