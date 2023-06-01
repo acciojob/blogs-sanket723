@@ -47,14 +47,7 @@ public class ImageService {
         //we have to convert it into integer like 2*2=4
         //below is the process to calculate total image dimension
 
-        int indexOfX=-1;
-
-        for(int i=0;i<imageDimensions.length();i++){
-            if(imageDimensions.charAt(i)=='X') {
-                indexOfX = i;
-                break;
-            }
-        }
+        int indexOfX = imageDimensions.indexOf('X');
 
         String x = imageDimensions.substring(0,indexOfX);
         String y = imageDimensions.substring(indexOfX+1);
@@ -63,19 +56,16 @@ public class ImageService {
 
 
         //Like above, Similarly find total screen dimension in integer format
-        for(int i=0;i<screenDimensions.length();i++){
-            if(screenDimensions.charAt(i)=='X') {
-                indexOfX = i;
-                break;
-            }
-        }
 
-        x = screenDimensions.substring(0,indexOfX);
-        y = screenDimensions.substring(indexOfX+1);
+        int screenIndexOfX = screenDimensions.indexOf('X');
 
-        int totalScreenDimension = Integer.parseInt(x) * Integer.parseInt(y);
+        String screenX = screenDimensions.substring(0,screenIndexOfX);
+        String screenY = screenDimensions.substring(screenIndexOfX+1);
 
-        int count = totalScreenDimension/totalImageDimension + totalScreenDimension%totalImageDimension;
+        int totalScreenDimension = Integer.parseInt(screenX) * Integer.parseInt(screenY);
+
+        //Final count
+        int count = totalScreenDimension/totalImageDimension;
 
         return count;
 
