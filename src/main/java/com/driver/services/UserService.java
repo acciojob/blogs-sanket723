@@ -33,6 +33,6 @@ public class UserService {
 
         user.setPassword(password);
 
-        return user;
+        return userRepository3.save(user);
     }
 }
