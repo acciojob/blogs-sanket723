@@ -64,8 +64,11 @@ public class ImageService {
 
         int totalScreenDimension = Integer.parseInt(screenX) * Integer.parseInt(screenY);
 
+
+       // int count = totalScreenDimension/totalImageDimension;
+
         //Final count
-        int count = totalScreenDimension/totalImageDimension;
+        int count = (Integer.parseInt(screenX)/Integer.parseInt(x)) * (Integer.parseInt(screenY)/Integer.parseInt(y));
 
         return count;
 
